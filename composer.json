@@ -1,0 +1,19 @@
+{
+    "name": "zhkugh/epdo",
+    "description": "easy pdo",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zhkugh",
+            "email": "zhkugh@163.com"
+        }
+    ],
+    "require": {},
+    "repositories": {
+        "epdo": {
+            "type": "path",
+            "url": "."
+        }
+    }
+}
