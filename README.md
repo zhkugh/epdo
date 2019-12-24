@@ -3,7 +3,7 @@
 <p align="center"> A PDO Library.</p>
 <p align="center">Create a easy Database App: Connecting to MySQL with PHP.</p>
 
-
+[![Build Status](https://travis-ci.com/zhkugh/epdo.svg?branch=master)](https://travis-ci.com/zhkugh/epdo)
 ## Installing
 
 ```shell

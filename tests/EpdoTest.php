@@ -30,7 +30,6 @@ class EpdoTest extends TestCase
         $this->assertSame(1, DB::query($sql) ? 1 : 0);
     }
 
-
     public function test_insert()
     {
         $rowCount = DB::insert('travis', [
