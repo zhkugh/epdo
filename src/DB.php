@@ -32,13 +32,13 @@ class DB
      */
     public static function instance()
     {
-        if (null !== self::$instance) {
-
-            return self::$instance;
-        }
-
         if (!class_exists('PDO')) {
             throw new Exception('PDO class not exists .');
+        }
+
+        if (self::$instance instanceof PDO) {
+
+            return self::$instance;
         }
 
         $defaultConfigPath = __DIR__.'/../config/database.php';
@@ -50,7 +50,7 @@ class DB
 
         $dsn = 'mysql:host='.$configs['host'].';dbname='.$configs['dbname'].';charset='.$configs['charset'];
 
-        self::$instance = new PDO($dsn, $configs['username'], $configs['password'], [
+        return self::$instance = new PDO($dsn, $configs['username'], $configs['password'], [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => true,
