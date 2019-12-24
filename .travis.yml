@@ -13,7 +13,7 @@ before_script:
     - mysql -u root -e 'CREATE DATABASE IF NOT EXISTS etc;'
 
 
-script: vendor/bin/phpunit --verbose
+script: ./vendor/bin/phpunit
 
 matrix:
     fast_finish: true
