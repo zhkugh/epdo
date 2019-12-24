@@ -4,6 +4,9 @@
 <p align="center">Create a easy Database App: Connecting to MySQL with PHP.</p>
 
 [![Build Status](https://travis-ci.com/zhkugh/epdo.svg?branch=master)](https://travis-ci.com/zhkugh/epdo)
+![StyleCI build status](https://github.styleci.io/repos/229662354/shield) 
+
+
 ## Installing
 
 ```shell
