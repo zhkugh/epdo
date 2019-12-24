@@ -37,12 +37,11 @@ class DB
         }
 
         if (self::$instance instanceof PDO) {
-
             return self::$instance;
         }
 
         $defaultConfigPath = __DIR__.'/../config/database.php';
-        $configPath        = __DIR__.'/../../../../config/database.php';
+        $configPath = __DIR__.'/../../../../config/database.php';
 
         $configFile = file_exists($configPath) ? $configPath : $defaultConfigPath;
 
@@ -55,7 +54,6 @@ class DB
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => true,
         ]);
-
     }
 
     /**
