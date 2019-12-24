@@ -12,7 +12,7 @@ return [
     'dbname'  => 'etc',
     'charset' => 'utf8',
 
-    'host'  => 'localhost',
+    'host'     => 'localhost',
     'username' => 'root',
     'password' => '',
 ];
