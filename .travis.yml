@@ -11,16 +11,7 @@ before_script:
     - composer self-update
     - composer install --prefer-source --no-interaction --dev
     - mysql -u root -e 'CREATE DATABASE IF NOT EXISTS etc;'
-    - mysql -u root -e 'USE etc;'
-    - mysql -u root -e 'CREATE TABLE IF NOT EXISTS `travis` (
-        `id` INT(11) NOT NULL AUTO_INCREMENT,
-        `content` text,
-        PRIMARY KEY (`id`)
-        )
-        COLLATE='utf8_general_ci'
-        ENGINE=InnoDB
-        AUTO_INCREMENT=1
-        ;'
+
 
 script: vendor/bin/phpunit --verbose
 
