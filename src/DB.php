@@ -32,29 +32,30 @@ class DB
      */
     public static function instance()
     {
-        if (null === self::$instance) {
-            if (!class_exists('PDO')) {
-                throw new Exception('PDO class not exists .');
-            }
+        if (null !== self::$instance) {
 
-            $configFile = __DIR__.'/../config/database.php';
-
-            if (!file_exists($configFile)) {
-                throw new Exception('database configuration file not found .');
-            }
-
-            $configs = require_once $configFile;
-
-            $dsn = 'mysql:host='.$configs['host'].';dbname='.$configs['dbname'].';charset='.$configs['charset'];
-
-            self::$instance = new PDO($dsn, $configs['username'], $configs['password'], [
-                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES   => true,
-            ]);
+            return self::$instance;
         }
 
-        return self::$instance;
+        if (!class_exists('PDO')) {
+            throw new Exception('PDO class not exists .');
+        }
+
+        $defaultConfigPath = __DIR__.'/../config/database.php';
+        $configPath        = __DIR__.'/../../../../config/database.php';
+
+        $configFile = file_exists($configPath) ? $configPath : $defaultConfigPath;
+
+        $configs = require_once $configFile;
+
+        $dsn = 'mysql:host='.$configs['host'].';dbname='.$configs['dbname'].';charset='.$configs['charset'];
+
+        self::$instance = new PDO($dsn, $configs['username'], $configs['password'], [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => true,
+        ]);
+
     }
 
     /**
