@@ -10,7 +10,8 @@ services:
 before_script:
     - composer self-update
     - composer install --prefer-source --no-interaction --dev
-    - mysql -u root --password="" < test/travis.sql
+    - mysql -u root -e 'CREATE DATABASE etc;'
+    - mysql -u root etc < test/travis.sql
 
 script: vendor/bin/phpunit --verbose
 

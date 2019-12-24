@@ -1,7 +1,3 @@
-DROP DATABASE IF EXISTS `etc`;
-CREATE DATABASE IF NOT EXISTS `etc`;
-USE `etc`;
-
 CREATE TABLE IF NOT EXISTS `travis` (
    `id` INT(11) NOT NULL AUTO_INCREMENT,
    `content` text,
