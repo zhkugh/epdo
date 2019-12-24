@@ -9,10 +9,10 @@
  */
 
 return [
-    'dbname' => 'etc',
+    'dbname'  => 'etc',
     'charset' => 'utf8',
 
-    'host' => 'localhost',
+    'host'     => 'localhost',
     'username' => 'root',
     'password' => '',
 ];

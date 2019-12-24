@@ -26,9 +26,9 @@ class DB
     }
 
     /**
-     * @return PDO
-     *
      * @throws \Exception
+     *
+     * @return PDO
      */
     public static function instance()
     {
@@ -48,9 +48,9 @@ class DB
             $dsn = 'mysql:host='.$configs['host'].';dbname='.$configs['dbname'].';charset='.$configs['charset'];
 
             self::$instance = new PDO($dsn, $configs['username'], $configs['password'], [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => true,
+                PDO::ATTR_EMULATE_PREPARES   => true,
             ]);
         }
 
@@ -63,9 +63,9 @@ class DB
      * @param $method
      * @param $args
      *
-     * @return mixed
-     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public static function __callStatic($method, $args)
     {
@@ -78,9 +78,9 @@ class DB
      * @param $sql
      * @param array $args
      *
-     * @return bool|PDOStatement
-     *
      * @throws \Exception
+     *
+     * @return bool|PDOStatement
      */
     public static function run($sql, $args = [])
     {
@@ -96,9 +96,9 @@ class DB
      * @param $table
      * @param array $data
      *
-     * @return bool
-     *
      * @throws \Exception
+     *
+     * @return bool
      *
      * @example  INSERT INTO {$table} SET field = :field, field2 = :field2;
      */
@@ -126,9 +126,9 @@ class DB
      * @param array  $data
      * @param string $where
      *
-     * @return bool
-     *
      * @throws \Exception
+     *
+     * @return bool
      *
      * @example UPDATE {$table} SET field = :field, field2 = :field2 where id=1;
      */
@@ -157,9 +157,9 @@ class DB
      * @param $table
      * @param string $where
      *
-     * @return bool DELETE FROM {$table} WHERE id=1;
-     *
      * @throws \Exception
+     *
+     * @return bool DELETE FROM {$table} WHERE id=1;
      */
     public static function delete($table, $where = '')
     {
@@ -180,9 +180,9 @@ class DB
      * @param $sql
      * @param array $parameters
      *
-     * @return bool|mixed
-     *
      * @throws \Exception
+     *
+     * @return bool|mixed
      */
     public static function find($sql, $parameters = [])
     {
