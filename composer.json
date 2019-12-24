@@ -2,18 +2,23 @@
     "name": "zhkugh/epdo",
     "description": "easy pdo",
     "type": "library",
+    "require": {
+        "php": ">=5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5 || ^7",
+        "mockery/mockery": "1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zhkugh\\Epdo\\": "./src"
+        }
+    },
     "license": "MIT",
     "authors": [
         {
             "name": "zhkugh",
             "email": "zhkugh@163.com"
         }
-    ],
-    "require": {},
-    "repositories": {
-        "epdo": {
-            "type": "path",
-            "url": "."
-        }
-    }
+    ]
 }
