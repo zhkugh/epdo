@@ -16,33 +16,38 @@ $ composer require zhkugh/epdo -vvv
 ## Usage
 
 ```php
-    
-    // query
-    $sql = "     CREATE TABLE IF NOT EXISTS `travis` (
+<?php
+
+require __DIR__."/vendor/autoload.php";
+
+use Zhkugh\Epdo\DB;
+
+// query
+$sql = "CREATE TABLE IF NOT EXISTS `travis` (
      	`id` INT(11) NOT NULL AUTO_INCREMENT,
      	`content` text,
      	PRIMARY KEY (`id`)
      ) COLLATE = 'utf8_general_ci' ENGINE = InnoDB AUTO_INCREMENT = 1;";
 
-    $bool = DB::query($sql);
-    
-    // insert
-    $rowCount = DB::insert('travis', [
-        'content' => 'test',
-    ]);
-    
-    // update
-    $rowCount = DB::update('travis', [
-        'content' => 'NEW VALUE',
-    ], 'id=1');
-    
-    // run
-    $PDOStatement = DB::run('SELECT * FROM travis;');
-    
-    $list = $PDOStatement->fetchAll();
-    
-    // delete
-    $rowCount = DB::delete('travis', 'id=1');
+$bool = DB::query($sql);
+
+// insert
+$rowCount = DB::insert('travis', [
+    'content' => 'test',
+]);
+
+// update
+$rowCount = DB::update('travis', [
+    'content' => 'NEW VALUE',
+], 'id=1');
+
+// run
+$PDOStatement = DB::run('SELECT * FROM travis;');
+
+$list = $PDOStatement->fetchAll();
+
+// delete
+$rowCount = DB::delete('travis', 'id=1');
 ```
 
 ## Contributing
